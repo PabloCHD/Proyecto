@@ -114,6 +114,10 @@
     <None Include="Resources\123.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Reservacion.BL\Reservacion.BL.csproj">
+      <Project>{042232b9-1c9e-4a48-8109-f95709a277f1}</Project>
+      <Name>Reservacion.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Seguridad.BL\Seguridad.BL.csproj">
       <Project>{639e4976-1822-4a68-b2b1-259e074762b8}</Project>
       <Name>Seguridad.BL</Name>

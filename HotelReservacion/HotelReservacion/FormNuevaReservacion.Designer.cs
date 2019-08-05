@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNuevaReservacion));
             System.Windows.Forms.Label activoLabel;
             System.Windows.Forms.Label edadLabel;
             System.Windows.Forms.Label horaILabel;
@@ -38,11 +37,10 @@
             System.Windows.Forms.Label npersonasLabel;
             System.Windows.Forms.Label origenLabel;
             System.Windows.Forms.Label pagoLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNuevaReservacion));
             this.listaReservacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaReservacionesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -51,7 +49,10 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.listaReservacionesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCancelar = new System.Windows.Forms.ToolStripButton();
             this.listaReservacionesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,16 +84,88 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaReservacionesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // activoLabel
+            // 
+            activoLabel.AutoSize = true;
+            activoLabel.Location = new System.Drawing.Point(638, 144);
+            activoLabel.Name = "activoLabel";
+            activoLabel.Size = new System.Drawing.Size(40, 13);
+            activoLabel.TabIndex = 2;
+            activoLabel.Text = "Activo:";
+            // 
+            // edadLabel
+            // 
+            edadLabel.AutoSize = true;
+            edadLabel.Location = new System.Drawing.Point(136, 113);
+            edadLabel.Name = "edadLabel";
+            edadLabel.Size = new System.Drawing.Size(35, 13);
+            edadLabel.TabIndex = 4;
+            edadLabel.Text = "Edad:";
+            // 
+            // horaILabel
+            // 
+            horaILabel.AutoSize = true;
+            horaILabel.Location = new System.Drawing.Point(132, 194);
+            horaILabel.Name = "horaILabel";
+            horaILabel.Size = new System.Drawing.Size(39, 13);
+            horaILabel.TabIndex = 6;
+            horaILabel.Text = "Hora I:";
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(88, 49);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.TabIndex = 8;
+            idLabel.Text = "Id:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(124, 87);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.TabIndex = 10;
+            nombreLabel.Text = "Nombre:";
+            // 
+            // npersonasLabel
+            // 
+            npersonasLabel.AutoSize = true;
+            npersonasLabel.Location = new System.Drawing.Point(110, 165);
+            npersonasLabel.Name = "npersonasLabel";
+            npersonasLabel.Size = new System.Drawing.Size(61, 13);
+            npersonasLabel.TabIndex = 12;
+            npersonasLabel.Text = "Npersonas:";
+            // 
+            // origenLabel
+            // 
+            origenLabel.AutoSize = true;
+            origenLabel.Location = new System.Drawing.Point(130, 139);
+            origenLabel.Name = "origenLabel";
+            origenLabel.Size = new System.Drawing.Size(41, 13);
+            origenLabel.TabIndex = 14;
+            origenLabel.Text = "Origen:";
+            // 
+            // pagoLabel
+            // 
+            pagoLabel.AutoSize = true;
+            pagoLabel.Location = new System.Drawing.Point(638, 116);
+            pagoLabel.Name = "pagoLabel";
+            pagoLabel.Size = new System.Drawing.Size(35, 13);
+            pagoLabel.TabIndex = 16;
+            pagoLabel.Text = "Pago:";
+            // 
             // listaReservacionesBindingSource
             // 
-            this.listaReservacionesBindingSource.DataSource = typeof(Seguridad.BL.ReservacionBL.reservacion);
+            this.listaReservacionesBindingSource.DataSource = typeof(Reservacion.BL.ReservacionBL.Reservacion);
             // 
             // listaReservacionesBindingNavigator
             // 
-            this.listaReservacionesBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.listaReservacionesBindingNavigator.AddNewItem = null;
             this.listaReservacionesBindingNavigator.BindingSource = this.listaReservacionesBindingSource;
             this.listaReservacionesBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.listaReservacionesBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.listaReservacionesBindingNavigator.DeleteItem = null;
             this.listaReservacionesBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -105,7 +178,8 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.listaReservacionesBindingNavigatorSaveItem});
+            this.listaReservacionesBindingNavigatorSaveItem,
+            this.toolStripButtonCancelar});
             this.listaReservacionesBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.listaReservacionesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.listaReservacionesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -117,30 +191,12 @@
             this.listaReservacionesBindingNavigator.TabIndex = 0;
             this.listaReservacionesBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -202,14 +258,45 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // listaReservacionesBindingNavigatorSaveItem
             // 
             this.listaReservacionesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.listaReservacionesBindingNavigatorSaveItem.Enabled = false;
             this.listaReservacionesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("listaReservacionesBindingNavigatorSaveItem.Image")));
             this.listaReservacionesBindingNavigatorSaveItem.Name = "listaReservacionesBindingNavigatorSaveItem";
             this.listaReservacionesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.listaReservacionesBindingNavigatorSaveItem.Text = "Save Data";
+            this.listaReservacionesBindingNavigatorSaveItem.Click += new System.EventHandler(this.listaReservacionesBindingNavigatorSaveItem_Click);
+            // 
+            // toolStripButtonCancelar
+            // 
+            this.toolStripButtonCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCancelar.Image")));
+            this.toolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCancelar.Name = "toolStripButtonCancelar";
+            this.toolStripButtonCancelar.Size = new System.Drawing.Size(57, 22);
+            this.toolStripButtonCancelar.Text = "Cancelar";
+            this.toolStripButtonCancelar.Visible = false;
+            this.toolStripButtonCancelar.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // listaReservacionesDataGridView
             // 
@@ -278,15 +365,6 @@
             this.dataGridViewCheckBoxColumn1.HeaderText = "Activo";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
-            // activoLabel
-            // 
-            activoLabel.AutoSize = true;
-            activoLabel.Location = new System.Drawing.Point(638, 144);
-            activoLabel.Name = "activoLabel";
-            activoLabel.Size = new System.Drawing.Size(40, 13);
-            activoLabel.TabIndex = 2;
-            activoLabel.Text = "Activo:";
-            // 
             // activoCheckBox
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaReservacionesBindingSource, "Activo", true));
@@ -297,15 +375,6 @@
             this.activoCheckBox.Text = "checkBox1";
             this.activoCheckBox.UseVisualStyleBackColor = true;
             // 
-            // edadLabel
-            // 
-            edadLabel.AutoSize = true;
-            edadLabel.Location = new System.Drawing.Point(136, 113);
-            edadLabel.Name = "edadLabel";
-            edadLabel.Size = new System.Drawing.Size(35, 13);
-            edadLabel.TabIndex = 4;
-            edadLabel.Text = "Edad:";
-            // 
             // edadTextBox
             // 
             this.edadTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaReservacionesBindingSource, "Edad", true));
@@ -313,15 +382,6 @@
             this.edadTextBox.Name = "edadTextBox";
             this.edadTextBox.Size = new System.Drawing.Size(46, 20);
             this.edadTextBox.TabIndex = 5;
-            // 
-            // horaILabel
-            // 
-            horaILabel.AutoSize = true;
-            horaILabel.Location = new System.Drawing.Point(132, 194);
-            horaILabel.Name = "horaILabel";
-            horaILabel.Size = new System.Drawing.Size(39, 13);
-            horaILabel.TabIndex = 6;
-            horaILabel.Text = "Hora I:";
             // 
             // horaIDateTimePicker
             // 
@@ -331,31 +391,14 @@
             this.horaIDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.horaIDateTimePicker.TabIndex = 7;
             // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(88, 49);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(19, 13);
-            idLabel.TabIndex = 8;
-            idLabel.Text = "Id:";
-            // 
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaReservacionesBindingSource, "Id", true));
             this.idTextBox.Location = new System.Drawing.Point(113, 46);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(200, 20);
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(58, 20);
             this.idTextBox.TabIndex = 9;
-            // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(124, 87);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
-            nombreLabel.TabIndex = 10;
-            nombreLabel.Text = "Nombre:";
             // 
             // nombreTextBox
             // 
@@ -365,15 +408,6 @@
             this.nombreTextBox.Size = new System.Drawing.Size(259, 20);
             this.nombreTextBox.TabIndex = 11;
             // 
-            // npersonasLabel
-            // 
-            npersonasLabel.AutoSize = true;
-            npersonasLabel.Location = new System.Drawing.Point(110, 165);
-            npersonasLabel.Name = "npersonasLabel";
-            npersonasLabel.Size = new System.Drawing.Size(61, 13);
-            npersonasLabel.TabIndex = 12;
-            npersonasLabel.Text = "Npersonas:";
-            // 
             // npersonasTextBox
             // 
             this.npersonasTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaReservacionesBindingSource, "Npersonas", true));
@@ -382,15 +416,6 @@
             this.npersonasTextBox.Size = new System.Drawing.Size(200, 20);
             this.npersonasTextBox.TabIndex = 13;
             // 
-            // origenLabel
-            // 
-            origenLabel.AutoSize = true;
-            origenLabel.Location = new System.Drawing.Point(130, 139);
-            origenLabel.Name = "origenLabel";
-            origenLabel.Size = new System.Drawing.Size(41, 13);
-            origenLabel.TabIndex = 14;
-            origenLabel.Text = "Origen:";
-            // 
             // origenTextBox
             // 
             this.origenTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaReservacionesBindingSource, "Origen", true));
@@ -398,15 +423,6 @@
             this.origenTextBox.Name = "origenTextBox";
             this.origenTextBox.Size = new System.Drawing.Size(324, 20);
             this.origenTextBox.TabIndex = 15;
-            // 
-            // pagoLabel
-            // 
-            pagoLabel.AutoSize = true;
-            pagoLabel.Location = new System.Drawing.Point(638, 116);
-            pagoLabel.Name = "pagoLabel";
-            pagoLabel.Size = new System.Drawing.Size(35, 13);
-            pagoLabel.TabIndex = 16;
-            pagoLabel.Text = "Pago:";
             // 
             // pagoTextBox
             // 
@@ -485,5 +501,6 @@
         private System.Windows.Forms.TextBox npersonasTextBox;
         private System.Windows.Forms.TextBox origenTextBox;
         private System.Windows.Forms.TextBox pagoTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
     }
 }

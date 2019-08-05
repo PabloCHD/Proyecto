@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Seguridad.BL
+namespace Reservacion.BL
 {
     public class ReservacionBL
     {
-        public BindingList<reservacion> ListaReservaciones { get; set; }
+        public BindingList<Reservacion> ListaReservaciones { get; set; }
 
         public ReservacionBL()
         {
-            ListaReservaciones = new BindingList<reservacion>();
+            ListaReservaciones = new BindingList<Reservacion>();
 
-            var reservacion1 = new reservacion();
+            var reservacion1 = new Reservacion();
             reservacion1.Id = 1;
             reservacion1.Nombre = "Flor";
             reservacion1.Edad = 20;
@@ -25,7 +25,7 @@ namespace Seguridad.BL
             reservacion1.Pago = 450;
             reservacion1.Activo = true;
 
-            var reservacion2 = new reservacion();
+            var reservacion2 = new Reservacion();
             reservacion2.Id = 2;
             reservacion2.Nombre = "Nico";
             reservacion2.Edad = 21;
@@ -35,7 +35,7 @@ namespace Seguridad.BL
             reservacion2.Pago = 650;
             reservacion2.Activo = true;
 
-            var reservacion3 = new reservacion();
+            var reservacion3 = new Reservacion();
             reservacion3.Id = 3;
             reservacion3.Nombre = "David";
             reservacion3.Edad = 23;
@@ -45,7 +45,7 @@ namespace Seguridad.BL
             reservacion3.Pago = 700;
             reservacion3.Activo = true;
 
-            var reservacion4 = new reservacion();
+            var reservacion4 = new Reservacion();
             reservacion4.Id = 4;
             reservacion4.Nombre = "Pablo";
             reservacion4.Edad = 30;
@@ -62,12 +62,43 @@ namespace Seguridad.BL
             
         }
 
-        public BindingList<reservacion> ObtenerReservacion()
+        public BindingList<Reservacion> ObtenerReservacion()
         {
             return ListaReservaciones;
         }
 
-        public class reservacion
+        public bool GuardarReservacion(Reservacion reservacion)
+        {
+            if (reservacion.Id == 0)
+            {
+                reservacion.Id = ListaReservaciones.Max(item => item.Id) + 1;
+            }
+            return true;
+        }
+
+
+        public void AgregarReservaciones()
+        {
+            var nuevaReservacion = new Reservacion();
+            ListaReservaciones.Add(nuevaReservacion);
+        }
+
+        public bool EliminarReservaciones(int id)
+        {
+            foreach (var item in ListaReservaciones)
+            {
+                if (item.Id == id)
+                {
+                    ListaReservaciones.Remove(item);
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
+
+        public class Reservacion
         {
             public int Id { get; set; }
             public string Nombre { get; set; }
@@ -78,6 +109,11 @@ namespace Seguridad.BL
             public double Pago { get; set; }
             public bool Activo { get; set; }
         }
+
+
+
+
+
 
     }
 }
